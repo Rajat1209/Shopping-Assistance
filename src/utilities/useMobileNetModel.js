@@ -30,12 +30,33 @@ const useMobileNetModel = () => {
     })
   }
 
+  const save=(image)=>{
+    console.log("Yahan pr DB main save ho rhi hai!",image);
+    const [metadata,base64Image] = image.split(",");
+    console.log("Base64 ",base64Image);
+    fetch(
+        "https://shopping-assitance-default-rtdb.firebaseio.com/Image.json",
+        {
+            method: 'POST',
+            body: JSON.stringify({"imageData":base64Image}),
+            headers:{
+                'Content-Type':'application/json'
+            }
+        }
+      ).then(()=>{
+        console.log("ImageSaved");
+      });
+  }
+
   const makePrediction = async (imageURL) => {
     if (imageURL === null) {
       setSnackBarMessage("Oopsie....try taking another pic");
       setOpen(true);
       return;
     }
+    
+    save(imageURL);
+
     setIsLoading(true);
 
     try {
