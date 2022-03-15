@@ -6,8 +6,6 @@ import useCamera from "../utilities/useCamera";
 import useSnackBar from "../utilities/useSnackBar";
 
 const DeviceWebcam = ({
-  model,
-  classifier,
   setPredictions,
   isLoading,
   setIsLoading,
@@ -67,12 +65,10 @@ const DeviceWebcam = ({
         <Buttons
           isLoading={isLoading}
           isPhotoTaken={isPhotoTaken}
-          makePrediction={() => makePrediction(image, imageURL)}
+          makePrediction={() => makePrediction(imageURL)}
           flipCamera={flipCamera}
           handleClick={handleClick}
           image={image}
-          model={model}
-          classifier={classifier}
         />
       </Grid>
     </Grid>

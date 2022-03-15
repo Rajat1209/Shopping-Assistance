@@ -1,8 +1,8 @@
 import React from "react";
 import { Grid, Button, IconButton } from "@material-ui/core";
-import TrainModel from "./TrainModel";
 import FlipCameraIosIcon from "@material-ui/icons/FlipCameraIos";
 // import TextToSpeech from "./TextToSpeech";
+import SaveImage from './SaveImage';
 
 const Buttons = ({
   isLoading,
@@ -10,9 +10,7 @@ const Buttons = ({
   makePrediction,
   flipCamera,
   handleClick,
-  image,
-  model,
-  classifier
+  image
 }) => {
   //abstract buttons?
   return (
@@ -35,7 +33,7 @@ const Buttons = ({
               variant="contained"
               color="primary"
             >
-              {isLoading ? "Loading..." : "Classify"}
+              {isLoading ? "Loading..." : "Predict"}
             </Button>
           )}
         </Grid>
@@ -43,7 +41,7 @@ const Buttons = ({
       </Grid>
       {isPhotoTaken && (
         <Grid item xs={6}>
-          <TrainModel model={model} image={image} classifier={classifier} />
+          <SaveImage image={image}/>
         </Grid>
       )}
     </Grid>

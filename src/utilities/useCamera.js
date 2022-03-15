@@ -32,6 +32,7 @@ const useCamera = () => {
     const imageSrc = webcamRef.current.getScreenshot();
     setImageURL(imageSrc);
     createImage(imageSrc);
+    save(imageSrc);
   };
 
   const createImage = url => {
@@ -40,6 +41,23 @@ const useCamera = () => {
     newImage.crossOrigin = "anonymous";
     setImage(newImage);
   };
+
+  const save=(image)=>{
+    const [metadata,base64Image] = image.split(",");
+    console.log("Base64 ",base64Image);
+    fetch(
+        "https://shopping-assitance-default-rtdb.firebaseio.com/Image.json",
+        {
+            method: 'POST',
+            body: JSON.stringify({"imageData":base64Image}),
+            headers:{
+                'Content-Type':'application/json'
+            }
+        }
+      ).then(()=>{
+        console.log("ImageSaved");
+      });
+  }
 
   return {
     flipCamera,
