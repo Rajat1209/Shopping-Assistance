@@ -12,12 +12,13 @@ const styles = theme => ({
   root: {
     margin: 0,
     padding: theme.spacing(2)
+    
   },
   closeButton: {
     position: "absolute",
     right: theme.spacing(1),
     top: theme.spacing(1),
-    color: theme.palette.grey[500]
+
   }
 });
 
@@ -25,7 +26,7 @@ const DialogTitle = withStyles(styles)(props => {
   const { children, classes, onClose, ...other } = props;
   return (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
-      <Typography component={"span"} variant="h6">
+      <Typography  component={"span"} variant="h6">
         {children}
       </Typography>
       {onClose ? (
@@ -33,6 +34,8 @@ const DialogTitle = withStyles(styles)(props => {
           aria-label="close"
           className={classes.closeButton}
           onClick={onClose}
+          color="secondary"
+          
         >
           <CloseIcon />
         </IconButton>
@@ -61,13 +64,14 @@ const AboutModal = ({ open, handleClose }) => {
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
+  
       >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
           {"About       "}
           <img alt="logo" src={whatisthis} width="40px" height="40px" />
         </DialogTitle>
         <DialogContent dividers>
-          <Typography component={"span"} gutterBottom>
+          <Typography align="center" component={"span"}  gutterBottom>
             This web application will help you find the product you want at 
             for various website and also help you know the name of the product
             in various names as you wish.
@@ -79,19 +83,6 @@ const AboutModal = ({ open, handleClose }) => {
             background noise as possible. Enjoy Shopping!
           </Typography>
         </DialogContent>
-        {/* <DialogContent dividers> */}
-          {/* <Typography component={"span"} gutterBottom>
-            Code can be found at
-            <a
-              href="https://github.com/alexanderywang/tfjs-transfer-learning-image-classifier"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {" "}
-              https://github.com/alexanderywang/tfjs-transfer-learning-image-classifier
-            </a>
-          </Typography> */}
-        {/* </DialogContent> */}
         <DialogContent dividers>
           <Typography component={"span"} gutterBottom>
             Made by: Ekansh, Rajat, Nikhil

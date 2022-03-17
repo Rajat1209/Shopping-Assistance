@@ -119,12 +119,13 @@ const TextContent = ({ text, language, languageCode }) => {
         gutterBottom
         style={{ fontWeight: "bold" }}
         display="inline"
+        
       >
         {text}
         <AudioButton text={text} languageCode={languageCode} />
       </Typography>
       <br></br>
-      <Typography component={"span"} display="inline" gutterBottom>
+      <Typography component={"span"} display="inline" gutterBottom >
         {language}
       </Typography>
     </DialogContentText>

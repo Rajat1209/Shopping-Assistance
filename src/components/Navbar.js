@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <Grid>
-      <AppBar position="static" style={{ background: "#395BCC" }}>
+      <AppBar position="static" style={{ background: "#936af5" }}>
         <Toolbar>
           <IconButton
             edge="start"
@@ -26,8 +26,8 @@ const Navbar = () => {
             <MenuIcon />
           </IconButton>
           <AboutModal open={open} handleClose={handleClose} />
-          <Typography component={"span"} variant="h5">
-            Shopping Assistance
+          <Typography color="" component={"span"} variant="h5">
+            SHOPPING ASSISTANCE
           </Typography>
         </Toolbar>
       </AppBar>

@@ -14,19 +14,17 @@ const Buttons = ({
 }) => {
   //abstract buttons?
   return (
-    <Grid container>
-      <Grid item xs={isPhotoTaken ? 6 : 12}>
-        <Grid>
-          <Button onClick={handleClick} variant="contained" color="secondary">
+    <Grid container >
+      <Grid item xs={isPhotoTaken ? 12 : 12} >
+        <Grid >
+          <Button onClick={handleClick} variant="contained" color="primary">
             {isPhotoTaken ? "Retake" : "Take Photo"}
           </Button>
           {!isPhotoTaken && (
-            <IconButton onClick={flipCamera}>
+            <IconButton onClick={flipCamera} color="secondary" >
               <FlipCameraIosIcon />
             </IconButton>
           )}
-        </Grid>
-        <Grid>
           {isPhotoTaken && (
             <Button
               onClick={makePrediction}
@@ -37,10 +35,21 @@ const Buttons = ({
             </Button>
           )}
         </Grid>
+        {/* <Grid>
+          {isPhotoTaken && (
+            <Button
+              onClick={makePrediction}
+              variant="contained"
+              color="primary"
+            >
+              {isLoading ? "Loading..." : "Predict"}
+            </Button>
+          )}
+        </Grid> */}
         {/* <TextToSpeech /> */}
       </Grid>
       {isPhotoTaken && (
-        <Grid item xs={6}>
+        <Grid item xs={12}>
           <SaveImage image={image}/>
         </Grid>
       )}

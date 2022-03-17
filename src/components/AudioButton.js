@@ -10,7 +10,7 @@ const AudioButton = ({ text, languageCode }) => {
     <Grid component={"span"}>
       <IconButton
         variant="contained"
-        color="default"
+        color="secondary"
         disabled={isDisabled}
         onClick={() => textToSpeech(text, languageCode)}
       >

@@ -7,8 +7,8 @@ const userVideo = {
 };
 
 const facingOutVideo = {
-  width: 240,
-  height: 240,
+  width: 300,
+  height: 300,
   facingMode: { exact: "environment" }
 };
 

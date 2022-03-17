@@ -50,7 +50,7 @@ const DeviceWebcam = ({
         onClose={handleClose}
         message={snackBarMessage}
       />
-      <Grid id="webcam" item xs={12} m={8}>
+      <Grid id="webcam" item xs={12} m={12}  >
         <Webcam
           audio={false}
           ref={webcamRef}

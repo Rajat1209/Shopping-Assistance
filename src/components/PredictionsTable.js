@@ -21,7 +21,7 @@ const useStyles = makeStyles({
 });
 const PredictionsTable = ({ predictions }) => {
   const classes = useStyles();
-
+  
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
@@ -53,7 +53,7 @@ const PredictionRow = ({ prediction }) => {
       <TableCell align="left" scope="row" style={{ width: "2%" }}>
         <IconButton
           variant="outlined"
-          color="primary"
+          color="secondary"
           onClick={handleClickOpen}
         >
           <GTranslateIcon />
@@ -75,7 +75,7 @@ const PredictionRow = ({ prediction }) => {
         {prediction.className}
       </TableCell>
       <TableCell align="right" style={{ width: "30%" }}>
-          https://www.amazon.in/s?k={prediction.className}
+         <a href="https://www.amazon.in/s?k={prediction.className}">Amazon</a>
           {/* https://www.google.com/search?q={prediction.className}
           https://www.flipkart.com/search?q={prediction.className} */}
           
