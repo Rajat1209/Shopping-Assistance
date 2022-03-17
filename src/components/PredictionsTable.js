@@ -47,6 +47,9 @@ export default PredictionsTable;
 
 const PredictionRow = ({ prediction }) => {
   const { open, handleClickOpen, handleClose } = useModal();
+  const amazonURL="https://www.amazon.in/s?k="+prediction.className;
+  const googleURL="https://www.google.com/search?q="+prediction.className;
+  const flipkartURL=" https://www.flipkart.com/search?q="+prediction.className;
 
   return (
     <TableRow>
@@ -75,17 +78,13 @@ const PredictionRow = ({ prediction }) => {
         {prediction.className}
       </TableCell>
       <TableCell align="right" style={{ width: "30%" }}>
-         <a href="https://www.amazon.in/s?k={prediction.className}">Amazon</a>
-          {/* https://www.google.com/search?q={prediction.className}
-          https://www.flipkart.com/search?q={prediction.className} */}
-          
-        {/* {href="https://developers.google.com/web/fundamentals/web-app-manifest/"} */}
+         <a href={amazonURL} target="_blank">Amazon</a>
       </TableCell>
       <TableCell align="right" style={{ width: "20%" }}>
-          https://www.google.com/search?q={prediction.className} 
+        <a href={googleURL} target="_blank">Google</a>
       </TableCell>
       <TableCell align="right" style={{ width: "20%" }}>
-          https://www.flipkart.com/search?q={prediction.className}
+      <a href={flipkartURL} target="_blank">Flipkart</a>
        </TableCell>
     </TableRow>
   );
