@@ -31,9 +31,7 @@ const useMobileNetModel = () => {
   }
 
   const save=(image)=>{
-    // console.log("Yahan pr DB main save ho rhi hai!",image);
     const [metadata,base64Image] = image.split(",");
-    // console.log("Base64 ",base64Image);
     fetch(
         "https://shopping-assitance-default-rtdb.firebaseio.com/Image.json",
         {
@@ -43,8 +41,8 @@ const useMobileNetModel = () => {
                 'Content-Type':'application/json'
             }
         }
-      ).then(()=>{
-        // console.log("ImageSaved");
+      ).catch((err)=>{
+        console.log(err);
       });
   }
 
@@ -63,7 +61,7 @@ const useMobileNetModel = () => {
     try {
       await getObject();
       setIsLoading(false);
-      setPredictions([{"className":data.a}]);
+      setPredictions([{"className":data.object}]);
       setIsPrediction(true);
       console.log("Predictions- ",predictions);
       setSnackBarMessage(
