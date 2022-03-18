@@ -110,3 +110,18 @@ code {
   border-radius: 10px;
   border: 5px solid rgb(114, 18, 224);
 }
+.Icon{
+  float: right
+}
+.navbarTitle{
+  width: 100%;
+  /* textalign: center; */
+  font-size: 2.5rem;
+  /* background-color: #FFF; */
+  /* background-color: aqua; */
+  float:left;
+}
+.navbar{
+  align-items: center;
+  width: 100%;
+}
