@@ -50,7 +50,7 @@ const DeviceWebcam = ({
         onClose={handleClose}
         message={snackBarMessage}
       />
-      <Grid id="webcam" item xs={12} m={12}  >
+      <Grid id="webcam" item xs={12} m={12}>
         <Webcam
           audio={false}
           ref={webcamRef}
@@ -58,8 +58,9 @@ const DeviceWebcam = ({
           hidden={isPhotoTaken}
           videoConstraints={videoConstraints}
           mirrored={isMirrored}
+          
         />
-        {isPhotoTaken && <img src={imageURL} ref={imageRef} alt="selfie" />}
+        {isPhotoTaken && <img src={imageURL} ref={imageRef} alt="Pic" width="40%" />}
       </Grid>
       <Grid id="buttons">
         <Buttons

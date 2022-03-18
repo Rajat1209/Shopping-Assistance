@@ -6,7 +6,7 @@ import {
   Typography,
   IconButton
 } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
+import InfoIcon from "@material-ui/icons/Info";
 import AboutModal from "./AboutModal";
 import useModal from "../utilities/useModal";
 
@@ -20,13 +20,14 @@ const Navbar = () => {
           <IconButton
             edge="start"
             color="inherit"
-            aria-label="menu"
+            aria-label="info"
             onClick={handleClickOpen}
           >
-            <MenuIcon />
+            <InfoIcon />
           </IconButton>
+          
           <AboutModal open={open} handleClose={handleClose} />
-          <Typography color="" component={"span"} variant="h5">
+          <Typography textalign="center" component={"span"} variant="h4">
             SHOPPING ASSISTANCE
           </Typography>
         </Toolbar>

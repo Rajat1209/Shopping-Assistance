@@ -33,7 +33,6 @@ export const theme = createMuiTheme({
     secondary: { main: "#f3a8c1" },
     text: { primary: "#000", secondary: "#000" },
     background: { paper: "#cbe4f1", default: "#fafafa" },
-    
     error: { main: "#ff2525" },
     warning: { main: "#ffd034" },
     info: { main: "#2dbde2" },
@@ -43,6 +42,7 @@ export const theme = createMuiTheme({
   typography: {
     fontFamily: "Roboto",
     fontSize: 20,
+    align: "center",
     button: { fontWeight: "500", fontSize: 24, textTransform: "none" }
   },
   props: {
@@ -51,6 +51,6 @@ export const theme = createMuiTheme({
     MuiAlert: { variant: "standard" }
   },
   overrides: {
-    MuiButton: { root: { borderRadius: 13, height: 46, padding: "11px" } }
+    MuiButton: { root: { borderRadius: 18, height: 50, padding: "15px", margin: "15px" } }
   }
 });

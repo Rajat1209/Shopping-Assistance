@@ -15,13 +15,13 @@ const Buttons = ({
   //abstract buttons?
   return (
     <Grid container >
-      <Grid item xs={isPhotoTaken ? 12 : 12} >
+      <Grid  item xs={isPhotoTaken ? 12 : 12} >
         <Grid >
           <Button onClick={handleClick} variant="contained" color="primary">
             {isPhotoTaken ? "Retake" : "Take Photo"}
           </Button>
           {!isPhotoTaken && (
-            <IconButton onClick={flipCamera} color="secondary" >
+            <IconButton  onClick={flipCamera} color="secondary" >
               <FlipCameraIosIcon />
             </IconButton>
           )}

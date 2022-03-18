@@ -28,9 +28,9 @@ const PredictionsTable = ({ predictions }) => {
         <TableHead>
           <TableRow>
             <TableCell>Translate</TableCell>
-            <TableCell>Predictions</TableCell>
+            <TableCell align="center">Predictions</TableCell>
             <TableCell></TableCell>
-            <TableCell align="left">Links for Shopping</TableCell>
+            <TableCell align="center">Links for Shopping</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -77,13 +77,13 @@ const PredictionRow = ({ prediction }) => {
       >
         {prediction.className}
       </TableCell>
-      <TableCell align="right" style={{ width: "30%" }}>
+      <TableCell align="center" style={{ width: "20%" }}>
          <a href={amazonURL} target="_blank">Amazon</a>
       </TableCell>
-      <TableCell align="right" style={{ width: "20%" }}>
+      <TableCell align="center" style={{ width: "20%" }}>
         <a href={googleURL} target="_blank">Google</a>
       </TableCell>
-      <TableCell align="right" style={{ width: "20%" }}>
+      <TableCell align="center" style={{ width: "20%" }}>
       <a href={flipkartURL} target="_blank">Flipkart</a>
        </TableCell>
     </TableRow>
