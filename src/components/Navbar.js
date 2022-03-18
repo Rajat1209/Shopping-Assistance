@@ -17,22 +17,29 @@ const Navbar = () => {
     <Grid>
       <AppBar position="static" style={{ background: "#936af5" }}>
         <Toolbar>
+          <AboutModal open={open} handleClose={handleClose} />
+          <div className="navbar"> 
+          <h1 className="navbarTitle"> 
+            &nbsp;&nbsp;&nbsp;&nbsp;SHOPPING ASSISTANCE
+          </h1>
+          </div>
           <IconButton
-            edge="start"
+            className="Icon"
+            edge="false"
+            alignItems= "flex-end"
             color="inherit"
             aria-label="info"
             onClick={handleClickOpen}
+            // iconContainerStyle={{marginRight: 50 }}
           >
             <InfoIcon />
           </IconButton>
-          
-          <AboutModal open={open} handleClose={handleClose} />
-          <Typography textalign="center" component={"span"} variant="h4">
-            SHOPPING ASSISTANCE
-          </Typography>
         </Toolbar>
       </AppBar>
+
+     <p></p>
     </Grid>
+
   );
 };
 
