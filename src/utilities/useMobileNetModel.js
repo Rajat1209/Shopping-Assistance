@@ -61,12 +61,20 @@ const useMobileNetModel = () => {
     try {
       await getObject();
       setIsLoading(false);
+      console.log("Object NAme- ",data.object);
+      if(data.object==="No Object Detected!"){
+        setSnackBarMessage(
+          "Oopsie!! No product found.Please Take another picture."
+        );
+      }
+      else{
       setPredictions([{"className":data.object}]);
       setIsPrediction(true);
       console.log("Predictions- ",predictions);
       setSnackBarMessage(
-        "These are the possible options for your product, if u don't like them help me discover them..."
+        "These are the possible options for your product."
       );
+      }
     } catch (err) {
       setSnackBarMessage(
         "Oopsie!! No product found. Take another picture."
