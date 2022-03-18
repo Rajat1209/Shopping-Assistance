@@ -25,7 +25,7 @@ const DeviceWebcam = ({
     isPhotoTaken,
     setIsPhotoTaken
   } = useCamera();
-
+  
   const { handleClose, open, snackBarMessage } = useSnackBar();
 
   const handleClick = e => {
