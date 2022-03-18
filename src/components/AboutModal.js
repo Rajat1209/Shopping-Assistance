@@ -16,9 +16,9 @@ const styles = theme => ({
   },
   closeButton: {
     position: "absolute",
-    right: theme.spacing(1),
+    right: theme.spacing(1.5),
     top: theme.spacing(1),
-
+    
   }
 });
 
@@ -64,11 +64,10 @@ const AboutModal = ({ open, handleClose }) => {
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
-  
       >
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
           {"About       "}
-          <img alt="logo" src={whatisthis} width="40px" height="40px" />
+          <img alt="logo" src={whatisthis} width="40px" height="40px"  />
         </DialogTitle>
         <DialogContent dividers>
           <Typography align="center" component={"span"}  gutterBottom>

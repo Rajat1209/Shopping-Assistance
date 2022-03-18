@@ -16,15 +16,16 @@ import TranslationModal from "./TranslationModal";
 
 const useStyles = makeStyles({
   table: {
-    minWidth: window.width
+    minWidth: window.width,
+    
   }
 });
 const PredictionsTable = ({ predictions }) => {
   const classes = useStyles();
   
   return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
+    <TableContainer component={Paper} >
+      <Table  className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Translate</TableCell>
