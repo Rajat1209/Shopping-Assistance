@@ -24,7 +24,10 @@ const PredictionsTable = ({ predictions }) => {
   const classes = useStyles();
   
   return (
+
     <TableContainer component={Paper} >
+        {console.log("prediciton table ",predictions)}
+
       <Table  className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -72,9 +75,10 @@ const PredictionRow = ({ prediction }) => {
         )}
       </TableCell>
       <TableCell
+        align="center"
         component="th"
         scope="row"
-        style={{ fontWeight: "bold", width: "20%" }}
+        style={{  fontWeight: "bold", width: "20%" }}
       >
         {prediction.className}
       </TableCell>

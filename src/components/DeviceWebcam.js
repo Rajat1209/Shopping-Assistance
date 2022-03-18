@@ -4,12 +4,13 @@ import Buttons from "./Buttons";
 import { Grid, Snackbar } from "@material-ui/core";
 import useCamera from "../utilities/useCamera";
 import useSnackBar from "../utilities/useSnackBar";
-
+import '../index.css';
 const DeviceWebcam = ({
   setPredictions,
   isLoading,
   setIsLoading,
-  makePrediction
+  makePrediction,
+  setIsPrediction
 }) => {
   const webcamRef = useRef(null);
   const imageRef = useRef(null);
@@ -34,7 +35,7 @@ const DeviceWebcam = ({
       setIsLoading(false);
       setImageURL("");
     }
-    setPredictions([]);
+    // setPredictions([]);
     setIsPhotoTaken(!isPhotoTaken);
   };
 
@@ -60,16 +61,17 @@ const DeviceWebcam = ({
           mirrored={isMirrored}
           
         />
-        {isPhotoTaken && <img src={imageURL} ref={imageRef} alt="Pic" width="40%" />}
+        {isPhotoTaken && <img className="photoTaken" src={imageURL} ref={imageRef} alt="Pic" width="40%"  />}
       </Grid>
       <Grid id="buttons">
         <Buttons
           isLoading={isLoading}
           isPhotoTaken={isPhotoTaken}
-          makePrediction={() => makePrediction(imageURL)}
+          makePrediction={async () => await makePrediction(imageURL,setIsPrediction)}
           flipCamera={flipCamera}
           handleClick={handleClick}
           image={image}
+          setIsPrediction={ setIsPrediction}
         />
       </Grid>
     </Grid>

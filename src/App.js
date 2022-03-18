@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import "./App.css";
 import { Container, CircularProgress, Grid, Snackbar } from "@material-ui/core";
 import Navbar from "./components/Navbar";
@@ -18,7 +19,7 @@ const App = () => {
     makePrediction
   } = useMobileNetModel();
 
-
+const [isPrediction, setIsPrediction] = useState(false)
   return (
     <Grid>
         <Grid className="App">
@@ -29,6 +30,7 @@ const App = () => {
               isLoading={isLoading}
               setIsLoading={setIsLoading}
               makePrediction={makePrediction}
+              setIsPrediction={setIsPrediction}
             />
 
             {isLoading && (
@@ -36,7 +38,8 @@ const App = () => {
                 <CircularProgress />
               </Grid>
             )}
-            {predictions && <PredictionsTable predictions={predictions} />}
+            {console.log(predictions)}
+            {isPrediction && <PredictionsTable predictions={predictions} />}
           </Container>
         </Grid>
       <Snackbar

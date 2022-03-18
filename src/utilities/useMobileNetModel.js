@@ -15,7 +15,7 @@ const useMobileNetModel = () => {
   } = useSnackBar();
 
   const getObject=async ()=> {
-    fetch("/prediction").then(
+    await fetch("/prediction").then(
       res=>res.json()
     ).then(
         data=>{
@@ -31,9 +31,9 @@ const useMobileNetModel = () => {
   }
 
   const save=(image)=>{
-    console.log("Yahan pr DB main save ho rhi hai!",image);
+    // console.log("Yahan pr DB main save ho rhi hai!",image);
     const [metadata,base64Image] = image.split(",");
-    console.log("Base64 ",base64Image);
+    // console.log("Base64 ",base64Image);
     fetch(
         "https://shopping-assitance-default-rtdb.firebaseio.com/Image.json",
         {
@@ -44,11 +44,11 @@ const useMobileNetModel = () => {
             }
         }
       ).then(()=>{
-        console.log("ImageSaved");
+        // console.log("ImageSaved");
       });
   }
 
-  const makePrediction = async (imageURL) => {
+  const makePrediction = async (imageURL,setIsPrediction) => {
     if (imageURL === null) {
       setSnackBarMessage("Oopsie....try taking another pic");
       setOpen(true);
@@ -58,11 +58,13 @@ const useMobileNetModel = () => {
     save(imageURL);
 
     setIsLoading(true);
+    setIsPrediction(false);
 
     try {
       await getObject();
       setIsLoading(false);
       setPredictions([{"className":data.a}]);
+      setIsPrediction(true);
       console.log("Predictions- ",predictions);
       setSnackBarMessage(
         "These are the possible options for your product, if u don't like them help me discover them..."

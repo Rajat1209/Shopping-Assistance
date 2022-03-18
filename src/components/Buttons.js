@@ -10,7 +10,8 @@ const Buttons = ({
   makePrediction,
   flipCamera,
   handleClick,
-  image
+  image,
+
 }) => {
   //abstract buttons?
   return (
