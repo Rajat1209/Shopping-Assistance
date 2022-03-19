@@ -122,6 +122,6 @@ code {
   float:left;
 }
 .navbar{
-  align-items: center;
+  /* align-items: center; */
   width: 100%;
 }

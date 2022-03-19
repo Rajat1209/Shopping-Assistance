@@ -33,11 +33,15 @@ const [isPrediction, setIsPrediction] = useState(false)
               setIsPrediction={setIsPrediction}
             />
 
-            {isLoading && (
+            
+            
+            {/* {isLoading 
+            && (
               <Grid component="span">
-                <CircularProgress />
+                <MuiCircularProgress />
               </Grid>
-            )}
+            )
+            } */}
             {console.log(predictions)}
             {isPrediction && <PredictionsTable predictions={predictions} />}
           </Container>

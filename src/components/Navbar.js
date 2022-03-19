@@ -20,13 +20,12 @@ const Navbar = () => {
           <AboutModal open={open} handleClose={handleClose} />
           <div className="navbar"> 
           <h1 className="navbarTitle"> 
-            &nbsp;&nbsp;&nbsp;&nbsp;SHOPPING ASSISTANCE
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SHOPPING ASSISTANCE
           </h1>
           </div>
           <IconButton
             className="Icon"
-            edge="false"
-            alignItems= "flex-end"
+            edge="end"
             color="inherit"
             aria-label="info"
             onClick={handleClickOpen}
