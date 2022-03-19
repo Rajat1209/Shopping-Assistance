@@ -38,7 +38,7 @@ const [isPrediction, setIsPrediction] = useState(false)
             {isLoading 
             && (
               <Grid component="span">
-                <MuiCircularProgress />
+                <CircularProgress />
               </Grid>
             )
             }
