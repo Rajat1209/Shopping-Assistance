@@ -62,7 +62,7 @@ const useMobileNetModel = () => {
       await getObject();
       setIsLoading(false);
       console.log("Object NAme- ",data.object);
-      if(data.object==="No Object Detected!"){
+      if(data.object===undefined || data.object==="No Object Detected!"){
         setSnackBarMessage(
           "Oopsie!! No product found.Please Take another picture."
         );
