@@ -32,6 +32,7 @@ const DeviceWebcam = ({
   const handleClick = e => {
     if (!isPhotoTaken) takePhoto(webcamRef);
     else {
+      setIsPrediction(false);
       setIsLoading(false);
       setImageURL("");
     }
