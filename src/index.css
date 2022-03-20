@@ -116,10 +116,11 @@ code {
 .navbarTitle{
   width: 100%;
   /* textalign: center; */
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   /* background-color: #FFF; */
   /* background-color: aqua; */
   float:left;
+  font-family: 'Alegreya Sans', sans-serif;
 }
 .navbar{
   /* align-items: center; */
