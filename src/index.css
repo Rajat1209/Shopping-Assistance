@@ -126,3 +126,20 @@ code {
   /* align-items: center; */
   width: 100%;
 }
+@media screen and (max-width: 600px)
+{
+  .navbarTitle{
+    width: 100%;
+    /* textalign: center; */
+    font-size: 1.35rem;
+    /* background-color: #FFF; */
+    /* background-color: aqua; */
+    float:left;
+    font-family: 'Alegreya Sans', sans-serif;
+  }
+  .navbar{
+    /* align-items: center; */
+    width: 100%;
+  }
+
+}
