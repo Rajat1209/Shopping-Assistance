@@ -2,7 +2,6 @@ import { useState} from "react";
 import useSnackBar from "./useSnackBar";
 
 const useMobileNetModel = () => {
-  const [data, setData]=useState([{}])
   const [predictions, setPredictions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   
@@ -14,25 +13,9 @@ const useMobileNetModel = () => {
     setSnackBarMessage
   } = useSnackBar();
 
-  const getObject=async ()=> {
-    await fetch("/prediction").then(
-      res=>res.json()
-    ).then(
-        data=>{
-          setData(data)
-          console.log(data)
-        }
-    ).catch(error =>{
-      setSnackBarMessage(
-        "Oopsie!! No product found. Take another picture."
-      )
-      console.log(error)
-    })
-  }
-
-  const save=(image)=>{
+  const saveAndGetObject=async (image,setIsPrediction)=>{
     const [metadata,base64Image] = image.split(",");
-    fetch(
+    await fetch(
         "https://shopping-assitance-default-rtdb.firebaseio.com/Image.json",
         {
             method: 'POST',
@@ -42,8 +25,39 @@ const useMobileNetModel = () => {
             }
         }
       ).catch((err)=>{
+        setSnackBarMessage("Not able to connect to the Database");
         console.log(err);
       });
+      
+      await fetch("/prediction").then(
+        res=>res.json()
+      ).then(
+          fetchedData=>{
+
+            console.log("fetchedData- ",fetchedData.object);
+            setIsLoading(false);
+            
+            if(fetchedData.object===undefined || fetchedData.object==="No Object Detected!"){
+              setSnackBarMessage(
+                "Oopsie!! No product found.Please Take another picture."
+              );
+            }
+            else{
+            setPredictions([{"className":fetchedData.object}]);
+            setIsPrediction(true);
+            console.log("Predictions- ",predictions);
+            setSnackBarMessage(
+              "These are the possible options for your product."
+            );
+            }
+
+          }
+      ).catch(error =>{
+        setSnackBarMessage(
+          "Not able to connect with the backend server."
+        )
+        console.log(error)
+      })
   }
 
   const makePrediction = async (imageURL,setIsPrediction) => {
@@ -52,29 +66,12 @@ const useMobileNetModel = () => {
       setOpen(true);
       return;
     }
-    
-    save(imageURL);
-
     setIsLoading(true);
     setIsPrediction(false);
 
     try {
-      await getObject();
-      setIsLoading(false);
-      console.log("Object NAme- ",data.object);
-      if(data.object===undefined || data.object==="No Object Detected!"){
-        setSnackBarMessage(
-          "Oopsie!! No product found.Please Take another picture."
-        );
-      }
-      else{
-      setPredictions([{"className":data.object}]);
-      setIsPrediction(true);
-      console.log("Predictions- ",predictions);
-      setSnackBarMessage(
-        "These are the possible options for your product."
-      );
-      }
+      await saveAndGetObject(imageURL,setIsPrediction);
+      
     } catch (err) {
       setSnackBarMessage(
         "Oopsie!! No product found. Take another picture."
