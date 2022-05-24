@@ -5,7 +5,7 @@ import { Container, CircularProgress, Grid, Snackbar } from "@material-ui/core";
 import Navbar from "./components/Navbar";
 import PredictionsTable from "./components/PredictionsTable";
 import DeviceWebcam from "./components/DeviceWebcam";
-import useMobileNetModel from "./utilities/useMobileNetModel";
+import predictionModel from "./utilities/predictionModel";
 
 const App = () => {
   const {
@@ -17,7 +17,7 @@ const App = () => {
     isLoading,
     setIsLoading,
     makePrediction
-  } = useMobileNetModel();
+  } = predictionModel();
 
 const [isPrediction, setIsPrediction] = useState(false)
   return (

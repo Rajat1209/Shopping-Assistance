@@ -1,7 +1,7 @@
 import { useState} from "react";
 import useSnackBar from "./useSnackBar";
 
-const useMobileNetModel = () => {
+const predictionModel = () => {
   const [predictions, setPredictions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   
@@ -93,4 +93,4 @@ const useMobileNetModel = () => {
   };
 };
 
-export default useMobileNetModel;
+export default predictionModel;
