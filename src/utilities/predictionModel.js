@@ -16,7 +16,7 @@ const predictionModel = () => {
   const saveAndGetObject=async (image,setIsPrediction)=>{
     const [metadata,base64Image] = image.split(",");
     await fetch(
-        "https://shopping-assistance-final-viva-default-rtdb.firebaseio.com/Image.json",
+        "https://shopping-assistance-c964c-default-rtdb.firebaseio.com/Image.json",
         {
             method: 'POST',
             body: JSON.stringify({"imageData":base64Image}),
